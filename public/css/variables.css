@@ -1,0 +1,73 @@
+/*
+  Design tokens — every color, size, and spacing value lives here.
+  Themes override the --color-* variables in themes.css.
+  Never hardcode a color anywhere else in the codebase.
+*/
+
+:root {
+  /* ── Brand / accent (overridden per-child) ── */
+  --accent:          #4A90D9;
+  --accent-light:    #7ab3e8;
+  --accent-dark:     #2d6fad;
+
+  /* ── Surfaces ── */
+  --bg-app:          #0f1117;
+  --bg-header:       #1a1d27;
+  --bg-sidebar:      #13151f;
+  --bg-card:         #1e2130;
+  --bg-card-hover:   #252840;
+  --bg-overlay:      rgba(0, 0, 0, 0.7);
+
+  /* ── Text ── */
+  --text-primary:    #f0f2f8;
+  --text-secondary:  #8b91a8;
+  --text-muted:      #555b75;
+  --text-inverse:    #0f1117;
+
+  /* ── Borders ── */
+  --border:          #2a2d3e;
+  --border-light:    #3a3d52;
+
+  /* ── Status colors ── */
+  --color-success:   #4caf7d;
+  --color-warning:   #f5a623;
+  --color-danger:    #e05c5c;
+
+  /* ── Completion state ── */
+  --completed-text:  #555b75;
+  --completed-bg:    #161820;
+
+  /* ── Layout dimensions ── */
+  --header-height:   60px;
+  --sidebar-width:   72px;
+
+  /* ── Spacing scale ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+
+  /* ── Border radius ── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.5);
+
+  /* ── Z-index scale ── */
+  --z-base:       1;
+  --z-dropdown:   100;
+  --z-overlay:    200;
+  --z-modal:      300;
+  --z-celebration: 400;
+}

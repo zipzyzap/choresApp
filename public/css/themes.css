@@ -1,0 +1,93 @@
+/*
+  Named themes — each overrides the color variables from variables.css.
+  Applied to <body> as a data-theme attribute: <body data-theme="space">
+*/
+
+/* ── Default (dark blue) ── already set in variables.css ── */
+
+/* ── Space ───────────────────────────────────────────────────── */
+[data-theme="space"] {
+  --bg-app:        #080b14;
+  --bg-header:     #0d1220;
+  --bg-sidebar:    #090c18;
+  --bg-card:       #111828;
+  --bg-card-hover: #18223a;
+  --border:        #1e2d4a;
+  --border-light:  #2a3f66;
+  --text-primary:  #e8eeff;
+  --text-secondary: #7a90c0;
+  --text-muted:    #3a4f80;
+  --accent:        #6c8fff;
+  --accent-light:  #9ab2ff;
+  --accent-dark:   #4a6fd9;
+}
+
+/* ── Ocean ───────────────────────────────────────────────────── */
+[data-theme="ocean"] {
+  --bg-app:        #06111a;
+  --bg-header:     #0a1c28;
+  --bg-sidebar:    #071520;
+  --bg-card:       #0f2233;
+  --bg-card-hover: #162d42;
+  --border:        #1a3348;
+  --border-light:  #264d6e;
+  --text-primary:  #dff4f8;
+  --text-secondary: #6ab0c8;
+  --text-muted:    #2d5a70;
+  --accent:        #00bcd4;
+  --accent-light:  #4dd8e8;
+  --accent-dark:   #0090a8;
+}
+
+/* ── Adventure ───────────────────────────────────────────────── */
+[data-theme="adventure"] {
+  --bg-app:        #0f1208;
+  --bg-header:     #181e0c;
+  --bg-sidebar:    #111508;
+  --bg-card:       #1c2410;
+  --bg-card-hover: #242f14;
+  --border:        #2a3818;
+  --border-light:  #3d5422;
+  --text-primary:  #eef4dc;
+  --text-secondary: #90b050;
+  --text-muted:    #4a6028;
+  --accent:        #8bc34a;
+  --accent-light:  #aee070;
+  --accent-dark:   #689f38;
+}
+
+/* ── Sunset ───────────────────────────────────────────────────── */
+[data-theme="sunset"] {
+  --bg-app:        #150c0a;
+  --bg-header:     #22120e;
+  --bg-sidebar:    #180e0b;
+  --bg-card:       #261410;
+  --bg-card-hover: #301a15;
+  --border:        #3d2018;
+  --border-light:  #5c3028;
+  --text-primary:  #faeae0;
+  --text-secondary: #c07060;
+  --text-muted:    #6a3828;
+  --accent:        #ff7043;
+  --accent-light:  #ff9a76;
+  --accent-dark:   #d84315;
+}
+
+/* ── Minimal (near-white light theme) ───────────────────────── */
+[data-theme="minimal"] {
+  --bg-app:        #f4f6f9;
+  --bg-header:     #ffffff;
+  --bg-sidebar:    #eef0f5;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f0f4ff;
+  --border:        #dde2ee;
+  --border-light:  #c8cfe0;
+  --text-primary:  #1a1f2e;
+  --text-secondary: #5a6280;
+  --text-muted:    #9aa0b8;
+  --completed-text: #aab0c8;
+  --completed-bg:  #f0f2f8;
+  --accent:        #4a90d9;
+  --accent-light:  #7ab3e8;
+  --accent-dark:   #2d6fad;
+}

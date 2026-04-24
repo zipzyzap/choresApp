@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Chores</title>
+
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/themes.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+
+  <!-- ── Child selector ────────────────────────────────────────── -->
+  <div id="screen-selector" class="screen active">
+    <div class="selector-header">
+      <h1>Who's doing chores?</h1>
+    </div>
+    <div id="child-list" class="child-list"></div>
+    <button id="btn-parent-login" class="btn-ghost btn-small">⚙️ Parent Settings</button>
+  </div>
+
+  <!-- ── Main app ───────────────────────────────────────────────── -->
+  <div id="screen-app" class="screen">
+
+    <!-- Sticky header -->
+    <header id="app-header">
+
+      <!-- Left: child switcher -->
+      <div id="header-child" class="header-child">
+        <span id="header-avatar" class="header-avatar"></span>
+        <span id="header-name"   class="header-name"></span>
+        <span class="header-chevron">▾</span>
+        <!-- Dropdown populated by JS -->
+        <div id="child-switcher" class="child-switcher hidden"></div>
+      </div>
+
+      <!-- Center: overall progress -->
+      <div id="header-progress-wrap" class="header-progress-wrap">
+        <div class="header-progress-fraction" id="header-progress-fraction"></div>
+        <div class="header-progress-bar-track">
+          <div class="header-progress-bar-fill" id="header-progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Right: streak, date, points -->
+      <div class="header-right">
+        <div id="header-streak" class="header-streak"></div>
+        <div id="header-date"   class="header-date"></div>
+        <div id="header-points" class="header-points hidden"></div>
+      </div>
+
+    </header>
+
+    <div class="app-body">
+
+      <!-- Sidebar — columns only, no gear -->
+      <nav id="sidebar">
+        <div id="sidebar-columns" class="sidebar-columns"></div>
+      </nav>
+
+      <!-- Main content area -->
+      <main id="main-content">
+        <div id="column-progress-wrap" class="column-progress-wrap hidden">
+          <div class="column-progress-fraction" id="column-progress-fraction"></div>
+          <div class="column-progress-track">
+            <div class="column-progress-fill" id="column-progress-fill"></div>
+          </div>
+        </div>
+        <div id="items-list" class="items-list"></div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- ── Parent settings ────────────────────────────────────────── -->
+  <div id="screen-settings" class="screen">
+    <div id="settings-content"></div>
+  </div>
+
+  <!-- ── Celebration overlay ───────────────────────────────────── -->
+  <div id="celebration" class="celebration hidden"></div>
+
+  <!-- Scripts — order matters -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/js/themes.js"></script>
+  <script src="/js/children.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/columns.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/settings-pin.js"></script>
+  <script src="/js/settings-dashboard.js"></script>
+  <script src="/js/settings-children.js"></script>
+  <script src="/js/settings-columns.js"></script>
+  <script src="/js/settings-items.js"></script>
+  <script src="/js/router.js"></script>
+</body>
+</html>

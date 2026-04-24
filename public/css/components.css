@@ -1,0 +1,768 @@
+/*
+  Reusable UI components — buttons, cards, checkboxes, modals,
+  dropdowns, form elements. Keep these theme-agnostic.
+*/
+
+/* ── Child selector cards ────────────────────────────────────── */
+
+.child-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: border-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  min-width: 120px;
+}
+
+.child-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.child-card-avatar {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.child-card-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── Sidebar column buttons ──────────────────────────────────── */
+
+.sidebar-col-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm) 0;
+  width: 100%;
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+}
+
+.sidebar-col-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-card);
+}
+
+.sidebar-col-btn.active {
+  color: var(--accent);
+  background: var(--bg-card);
+}
+
+/* Left accent bar on active sidebar item */
+.sidebar-col-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.sidebar-col-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.sidebar-col-label {
+  max-width: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* ── Chore item cards ────────────────────────────────────────── */
+
+.item-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              opacity var(--transition-normal);
+  user-select: none;
+  /* Ensure full color by default — no residual opacity */
+  opacity: 1;
+}
+
+.item-card.completed {
+  background: var(--completed-bg);
+  border-color: var(--border);
+  opacity: 0.6;
+}
+
+.item-card.optional {
+  border-style: dashed;
+}
+
+/* Custom checkbox */
+.item-checkbox {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.item-checkbox.checked {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.item-name {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: color var(--transition-normal),
+              text-decoration var(--transition-normal);
+}
+
+/* Only strike/gray the name when the card has the completed class */
+.item-card.completed .item-name {
+  color: var(--completed-text);
+  text-decoration: line-through;
+}
+
+.item-points {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.item-optional-badge {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-small {
+  font-size: 0.8rem;
+  padding: var(--space-xs) var(--space-md);
+}
+
+/* ── Child switcher dropdown ─────────────────────────────────── */
+
+.header-chevron {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.child-switcher {
+  position: absolute;
+  top: calc(100% + var(--space-xs));
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  min-width: 180px;
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+}
+
+.child-switcher-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.child-switcher-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.child-switcher-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-xs) 0;
+}
+
+.child-switcher-action {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ── PIN pad ─────────────────────────────────────────────────── */
+
+.pin-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+}
+
+.pin-display {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+
+.pin-dot.filled {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.pin-key {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.pin-key:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+.pin-key:active {
+  transform: scale(0.95);
+}
+
+.pin-error {
+  color: var(--color-danger);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+/* ── Modal ───────────────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  min-width: 320px;
+  max-width: 90vw;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  margin-top: var(--space-lg);
+}
+
+/* ── Form elements ───────────────────────────────────────────── */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-input,
+.form-select {
+  background: var(--bg-app);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── Hidden utility ──────────────────────────────────────────── */
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Manage panel (streak, points, vacation) ─────────────────── */
+
+.manage-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.manage-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  gap: var(--space-md);
+}
+
+.manage-row:last-child {
+  border-bottom: none;
+}
+
+.manage-row-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.manage-row-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.manage-row-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.manage-row-value {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.manage-row-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* ── Inline editors (streak/points input rows) ───────────────── */
+
+.inline-editor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+/* ── Edit mode banner ────────────────────────────────────────── */
+
+.edit-mode-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-warning);
+  color: #000;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  gap: var(--space-md);
+}
+
+.edit-mode-done {
+  background: rgba(0,0,0,0.15);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.edit-mode-done:hover {
+  background: rgba(0,0,0,0.25);
+}
+
+/* ── Edit mode item cards ─────────────────────────────────────── */
+
+.item-card-edit {
+  cursor: pointer;
+  gap: var(--space-sm);
+}
+
+.item-card-edit:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+.item-delete-btn {
+  color: var(--color-danger) !important;
+}
+
+.item-delete-btn:hover {
+  background: rgba(224, 92, 92, 0.1) !important;
+}
+
+/* ── Add item button ─────────────────────────────────────────── */
+
+.add-item-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+  border-style: dashed !important;
+  color: var(--text-secondary) !important;
+}
+
+.add-item-btn:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* ── Sidebar add column button ───────────────────────────────── */
+
+.sidebar-add-col-btn {
+  width: 100%;
+  padding: var(--space-sm) 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-top: 1px dashed var(--border-light);
+  transition: background var(--transition-fast);
+  text-align: center;
+}
+
+.sidebar-add-col-btn:hover {
+  background: var(--bg-card);
+}
+
+/* ── Specific days checkboxes ────────────────────────────────── */
+
+.day-checkboxes {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.day-checkbox-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+}
+
+.day-checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.day-checkbox-label span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.day-checkbox-label input[type="checkbox"]:checked + span {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.day-checkbox-label:hover span {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Settings PIN modal ──────────────────────────────────────── */
+
+.settings-modal-overlay {
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-modal {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* ── Header overall progress ─────────────────────────────────── */
+
+.header-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.header-progress-fraction {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.header-progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.header-progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+  width: 0%;
+}
+
+/* All done state — bar turns green */
+.header-progress-bar-fill.complete {
+  background: var(--color-success);
+}
+
+/* ── Header right group ──────────────────────────────────────── */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+/* ── Column progress bar (above item list) ───────────────────── */
+
+.column-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.column-progress-fraction {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  min-width: 48px;
+}
+
+.column-progress-track {
+  flex: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.column-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+  width: 0%;
+}
+
+.column-progress-fill.complete {
+  background: var(--color-success);
+}
+
+/* ── View All section headers ────────────────────────────────── */
+
+.view-all-section {
+  margin-bottom: var(--space-lg);
+}
+
+.view-all-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--border);
+}
+
+.view-all-section-icon {
+  font-size: 1.4rem;
+}
+
+.view-all-section-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.view-all-section-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* Faint divider between incomplete and completed within a section */
+.view-all-completed-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-sm) 0;
+  opacity: 0.5;
+}
+
+/* ── View All sidebar button ─────────────────────────────────── */
+
+.sidebar-view-all-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm) 0;
+  width: 100%;
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-xs);
+}
+
+.sidebar-view-all-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-card);
+}
+
+.sidebar-view-all-btn.active {
+  color: var(--accent);
+  background: var(--bg-card);
+}
+
+.sidebar-view-all-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}

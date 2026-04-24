@@ -1,0 +1,17 @@
+{
+  "name": "chores-app",
+  "version": "1.0.0",
+  "description": "Family chore tracker",
+  "main": "private/server.js",
+  "scripts": {
+    "start": "node private/server.js",
+    "dev": "npx nodemon private/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.1",
+    "cors": "^2.8.5",
+    "nodemon": "^3.1.0"
+  }
+}

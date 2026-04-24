@@ -1,0 +1,13 @@
+services:
+  chores-app:
+    build: .
+    container_name: chores-app
+    ports:
+      - "3006:3000"
+    volumes:
+      - ./private:/app/private
+      - ./public:/app/public
+      - ./data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
