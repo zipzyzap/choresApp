@@ -1,3 +1,7 @@
+* Please note: This was a vibe coded/AI generated project that I completed prior to starting my education. Since I use this personally to this day for my kids, I thought I would share it. My ultimate plan (when I learn the skills necessary) would be to go back and rebuild this from the ground up while implementing any suggestions from the community. This has really helped my oldest child with her chores and responsibilities as she's gotten older. If this even helps one other person, it's worth it. :)
+
+
+
 # 🧹 Chores App
 
 A self-hosted family chore tracker built for touchscreens. Each child gets their own profile, color theme, and checklist; parents manage everything behind a PIN. Kids tap to check things off, watch their progress bar fill, build streaks, and (optionally) earn points.
@@ -337,5 +341,3 @@ choresApp/
 ```
 
 ---
-
-Built by [@zipzyzap](https://github.com/zipzyzap).
